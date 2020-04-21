@@ -12,7 +12,7 @@ namespace GovornikKoZna
 		public string Ime { get; set; }
 
 		private string zadnjeReceno;
-		public string ZadnjeReceno 
+		public string ZadnjeReceno
 		{ 
 			get => zadnjeReceno; 
 			set
@@ -25,5 +25,7 @@ namespace GovornikKoZna
 		public Slusaoc(string i) => Ime = i;
 
 		public event PropertyChangedEventHandler PropertyChanged;
+
+		public void Slusaj(object gov, GovorArgs a) => ZadnjeReceno = a.govor;
 	}
 }

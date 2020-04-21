@@ -22,7 +22,7 @@ namespace GovornikKoZna
 	public partial class MainWindow : Window
 	{
 		public ObservableCollection<Slusaoc> listaSl = new ObservableCollection<Slusaoc>();
-		public List<Slusaoc> zaGovornika = new List<Slusaoc>();
+		public Diktafon dikt = new Diktafon();
 
 		public Govornik g = new Govornik();
 
@@ -33,7 +33,7 @@ namespace GovornikKoZna
 			set
 			{
 				govor = value;
-				g.ObratiSe(zaGovornika, govor);
+				g.ObratiSe(govor);
 			}
 		}
 
@@ -49,16 +49,19 @@ namespace GovornikKoZna
 			dg.ItemsSource = listaSl;
 
 			DataContext = this;
+
+			g.Govor += dikt.Snimi;
+
 		}
 
 		private void Dodaj(object sender, RoutedEventArgs e)
 		{
-			zaGovornika.Add((sender as Control).DataContext as Slusaoc);
+			g.Govor += ((sender as Control).DataContext as Slusaoc).Slusaj;
 		}
 
 		private void Makni(object sender, RoutedEventArgs e)
 		{
-			zaGovornika.Remove((sender as Control).DataContext as Slusaoc);
+			g.Govor -= ((sender as Control).DataContext as Slusaoc).Slusaj;
 		}
 	}
 }
