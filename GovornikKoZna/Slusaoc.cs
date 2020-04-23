@@ -27,5 +27,7 @@ namespace GovornikKoZna
 		public event PropertyChangedEventHandler PropertyChanged;
 
 		public void Slusaj(object gov, GovorArgs a) => ZadnjeReceno = a.govor;
+
+		public override string ToString() => "Neko moj ToString :) ";
 	}
 }

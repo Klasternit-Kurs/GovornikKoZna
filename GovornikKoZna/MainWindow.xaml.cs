@@ -34,6 +34,7 @@ namespace GovornikKoZna
 			{
 				govor = value;
 				g.ObratiSe(govor);
+				dgDikt.ItemsSource = dikt.SveReceno.ToList();
 			}
 		}
 
@@ -48,9 +49,12 @@ namespace GovornikKoZna
 			listaSl.Add(new Slusaoc("Pera"));
 			dg.ItemsSource = listaSl;
 
-			DataContext = this;
+			DataContext = this;	
 
 			g.Govor += dikt.Snimi;
+			g.Govor += dikt.SnimiuFajl;
+
+			dgDikt.ItemsSource = dikt.SveReceno;
 
 		}
 

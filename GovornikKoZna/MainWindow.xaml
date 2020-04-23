@@ -10,18 +10,26 @@
 		<StackPanel DockPanel.Dock="Top">
 			<TextBox Text="{Binding Govor, UpdateSourceTrigger=PropertyChanged}"/>
 		</StackPanel>
-		<DataGrid Name="dg" AutoGenerateColumns="False" ColumnWidth="*">
-			<DataGrid.Columns>
-				<DataGridTextColumn Header="Ime" Binding="{Binding Ime}"/>
-				<DataGridTextColumn Header="Info" Binding="{Binding ZadnjeReceno}"/>
-				<DataGridTemplateColumn Header="Slusam">
-					<DataGridTemplateColumn.CellTemplate>
-						<DataTemplate>
-							<ToggleButton Checked="Dodaj" Unchecked="Makni"/>
-						</DataTemplate>
-					</DataGridTemplateColumn.CellTemplate>
-				</DataGridTemplateColumn>
-			</DataGrid.Columns>
-		</DataGrid>
+		<StackPanel>
+			<DataGrid Name="dg" AutoGenerateColumns="False" ColumnWidth="*">
+				<DataGrid.Columns>
+					<DataGridTextColumn Header="??" Binding="{Binding .}"/>
+					<DataGridTextColumn Header="Ime" Binding="{Binding Ime}"/>
+					<DataGridTextColumn Header="Info" Binding="{Binding ZadnjeReceno}"/>
+					<DataGridTemplateColumn Header="Slusam">
+						<DataGridTemplateColumn.CellTemplate>
+							<DataTemplate>
+								<ToggleButton Checked="Dodaj" Unchecked="Makni"/>
+							</DataTemplate>
+						</DataGridTemplateColumn.CellTemplate>
+					</DataGridTemplateColumn>
+				</DataGrid.Columns>
+			</DataGrid>
+			<DataGrid Name="dgDikt" ColumnWidth="*" AutoGenerateColumns="False" IsReadOnly="True">
+				<DataGrid.Columns>
+					<DataGridTextColumn Header="Receno" Binding="{Binding .}"/>
+				</DataGrid.Columns>
+			</DataGrid>
+		</StackPanel>
 	</DockPanel>
 </Window>
